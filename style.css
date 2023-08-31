@@ -6,15 +6,33 @@ body {
 }
 
 h1 {
-    text-align: center;
+    text-align: left;
     padding: 20px;
     color: #333;
     font-size: 2rem;
 }
 
+.header {
+    background-color: green;
+    gap: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header .logo {
+    padding: 10px;
+}
+
+.header .header-content {
+    padding: 10px;
+    display: flex;
+    align-content: center;
+    margin: 20px;
+}
+
 .product-card-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     justify-items: center;
     gap: 20px;
     padding: 20px;
@@ -33,12 +51,12 @@ h1 {
     align-items: center;
 }
 
-.product-card:hover {
+/* .product-card:hover {
     transform: translateY(-5px);
     border-color: #007bff;
-}
+} */
 
-.product-card img {
+/* .product-card img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
@@ -57,8 +75,123 @@ h1 {
     font-size: 1rem;
     text-align: center;
     flex-grow: 1;
+} */
+.container {
+    display: grid;
+    width: 25em;
+    height: 30em;
+    color: white;
+    margin: 40px;
 }
 
+.info {
+    background-color: rgb(221, 221, 221);
+    /* Change to your preferred color */
+    padding: 1.5em;
+    border-radius: 15px 15px 0px 15px;
+}
+
+.info img {
+    width: 100%;
+    height: 15em;
+    border-radius: 15px;
+}
+
+.bottom {
+    min-width: 100%;
+    height: 7em;
+    display: flex;
+    align-self: end;
+    justify-self: start;
+}
+
+.prices {
+    margin-top: -1px;
+    width: 100%;
+    background-color: rgb(221, 221, 221);
+    /* Change to your preferred color */
+    border-radius: 0px 0px 15px 15px;
+}
+
+.addCart {
+    position: relative;
+    width: 10em;
+    border: none;
+    background-color: transparent;
+}
+
+.addCart::after {
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    width: 25px;
+    height: 50px;
+    top: 0px;
+    right: -1px;
+    border-top-right-radius: 15px;
+    box-shadow: 0px -15px 0 -0.3px rgb(221, 221, 221);
+    /* Change to your preferred color */
+}
+
+/* Text Styles */
+h3.title {
+    color: var(--black, #000);
+    font-family: Rubik;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 24px */
+    text-transform: capitalize;
+    font-size: 1.8rem;
+    margin: 0.5em 0;
+    color: #333;
+    /* Your preferred text color */
+}
+
+p.id {
+    font-size: 1rem;
+    margin: 0;
+    color: #777;
+    /* Your preferred text color */
+}
+
+p.price {
+    color: var(--red, #941B0C);
+    text-align: right;
+    font-family: Rubik;
+    font-size: 43px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 51.6px */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-container a {
+    padding: 10px 20px;
+    background-color: #007bff;
+    /* Your preferred button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.button-container a:hover {
+    background-color: #0056b3;
+    /* Your preferred button hover color */
+}
+
+
+/* ================================= */
 .button-container {
     display: flex;
     justify-content: center;
@@ -79,31 +212,35 @@ h1 {
 .button-container a:hover {
     background-color: #0056b3;
 }
+
 body.dark-mode {
     background-color: #222;
 }
+
 body.dark-mode h1 {
     color: whitesmoke;
 }
 
 body.dark-mode .product-card h3 {
-    color: #f0f0f0; /* Change to a brighter color for Dark Mode */
+    color: #f0f0f0;
 }
 
 body.dark-mode .product-card p {
     color: whitesmoke;
 }
+
 body.dark-mode .product-card {
     background-color: black;
     border-color: #333;
     color: whitesmoke;
     box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
 }
+
 .dark-mode-toggle label {
     margin-right: 5px;
     color: #333;
-    /* Other styles */
 }
+
 body.dark-mode .dark-mode-toggle label {
     color: whitesmoke;
 }
@@ -135,4 +272,27 @@ body.dark-mode .dark-mode-toggle label {
 
 .dark-mode-toggle input[type="checkbox"]:checked:before {
     transform: translateX(20px);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-container a {
+    padding: 10px 20px;
+    background-color: #007bff;
+    /* Your preferred button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.button-container a:hover {
+    background-color: #0056b3;
+    /* Your preferred button hover color */
 }
