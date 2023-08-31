@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: #222;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    color: #333;
+    font-size: 2rem;
+    transition: color 0.3s ease;
+}
+
+body.dark-mode h1 {
+    color: whitesmoke;
+}
+
+.product-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.product-card {
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: #007bff;
+}
+
+.product-card img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-details {
+    grid-column: span 3;
+}
+
+.product-details h3 {
+    margin: 10px 0 5px;
+    font-size: 1.5rem;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+body.dark-mode .product-details h3 {
+    color: whitesmoke;
+}
+
+body.dark-mode .product-details p {
+    margin: 0;
+    color: #777;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+body.dark-mode .product-details p {
+    color: whitesmoke;
+}
+
+.product-details span {
+    font-weight: bold;
+    color: #333;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.button-container button,
+.button-container a {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.button-container button:hover,
+.button-container a:hover {
+    background-color: #0056b3;
+}
+
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    transition: background-color 0.3s ease;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-container input {
+    display: block;
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.form-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #0056b3;
+}
+
+body.dark-mode .form-container {
+    background-color: #222;
+    border: 2px solid #555;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .form-container label {
+    color: #ccc;
+}
+
+body.dark-mode .form-container input {
+    background-color: #555;
+    border: 1px solid #555;
+    color: #ccc;
+}
+
+body.dark-mode .form-container button {
+    background-color: #007bff;
+    color: whitesmoke;
+}
+
+body.dark-mode .form-container button {
+    background-color: #0056b3;
+}
+
+body.dark-mode .product-card {
+    background-color: #222;
+    border-color: #333;
+    color: whitesmoke;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+}
+.dark-mode-toggle  {
+    display: inline-block;
+    margin-left: 25px;
+    padding: 10px;
+    gap: 10px;
+}
+
+.dark-mode-toggle input[type="checkbox"] {
+    appearance: none;
+    width: 40px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.dark-mode-toggle input[type="checkbox"]:before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    left: 0;
+    transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle input[type="checkbox"]:checked {
+    background-color: #007bff;
+}
+
+.dark-mode-toggle input[type="checkbox"]:checked:before {
+    transform: translateX(20px);
+}
+.dark-mode-toggle label {
+    display: flex;
+    align-items: center; /* Vertically center the label with the checkbox */
+    margin: 5px;
+    color: #333;
+}
+body.dark-mode .dark-mode-toggle label {
+    color: whitesmoke;
+}
