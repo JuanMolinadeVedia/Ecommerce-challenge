@@ -192,7 +192,8 @@ body.dark-mode .product-card {
     color: whitesmoke;
     box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
 }
-.dark-mode-toggle  {
+
+.dark-mode-toggle {
     display: inline-block;
     margin-left: 25px;
     padding: 10px;
@@ -227,12 +228,56 @@ body.dark-mode .product-card {
 .dark-mode-toggle input[type="checkbox"]:checked:before {
     transform: translateX(20px);
 }
+
 .dark-mode-toggle label {
     display: flex;
-    align-items: center; /* Vertically center the label with the checkbox */
+    align-items: center;
     margin: 5px;
     color: #333;
 }
+
 body.dark-mode .dark-mode-toggle label {
     color: whitesmoke;
 }
+#cardTypeToggle {
+    display: none;
+  }
+  
+  #cardTypeToggle + label {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #cardTypeToggle:checked + label {
+    background-color: #0056b3;
+  }
+  
+  #cardTypeToggle + label::before {
+    content: "Aplicar Descuento";
+  }
+  
+  #cardTypeToggle:checked + label::before {
+    content: "Descuento Aplicado";
+    font-weight: bold;
+  }
+
+ /* Estilo para las tarjetas de producto con descuento */
+.product-card .discounted::before {
+    content: "Descuento 10%";
+    background-color: #ff0000; /* Color de fondo de la marca */
+    color: #ffffff; /* Color del texto de la marca */
+    padding: 2px 5px; /* Espaciado interior de la marca */
+    border-radius: 5px; /* Bordes redondeados de la marca */
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 12px;
+}
+
