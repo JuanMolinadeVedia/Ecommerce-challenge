@@ -3,7 +3,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Rubik;
+    font-family: 'Rubik', sans-serif;
     background-color: #f4f4f4;
 }
 
@@ -166,13 +166,13 @@ h1 {
     right: -1px;
     border-top-right-radius: 15px;
     box-shadow: 0px -15px 0 -0.3px rgb(221, 221, 221);
-    /* Change to your preferred color */
+    /* rgb(219 202 42) */
 }
 
 /* Text Styles */
 h3.title {
     color: var(--black, #000);
-    font-family: Rubik;
+    font-family: 'Rubik', sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -195,7 +195,7 @@ p.id {
 p.price {
     color: var(--red, #941B0C);
     text-align: right;
-    font-family: Rubik;
+    font-family: 'Rubik', sans-serif;
     font-size: 43px;
     font-style: normal;
     font-weight: 500;
