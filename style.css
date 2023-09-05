@@ -241,7 +241,9 @@ body.dark-mode {
 body.dark-mode p.price{
     color: #d9301a;
 }
-
+body.dark-mode h3.title{
+    color:whitesmoke;
+}
 body.dark-mode .prices{
     background-color:#222;
 }
