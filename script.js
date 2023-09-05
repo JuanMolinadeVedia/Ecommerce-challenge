@@ -3,6 +3,8 @@ const darkModeToggle = document.getElementById("darkModeToggle");
 const body = document.body;
 const darkModeToggleLabel = document.querySelector(".dark-mode-toggle label");
 const productCardContainer = document.querySelector(".product-card-container");
+const productCardDiscountContainer = document.querySelector(".product-card-discount-container");
+
 let products = [];
 
 window.addEventListener("load", function () {
@@ -109,7 +111,7 @@ function addProductCard(product) {
     shoppingBagIcon.innerHTML = `
         <svg id="shoppingBagIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 24 26" fill="none">
     <g clip-path="url(#clip0_471_394)">
-        <path d="M5.36048 1.91846L2.11188 6.32375V21.7423C2.11188 22.3264 2.34005 22.8867 2.74621 23.2998C3.15236 23.7128 3.70322 23.9449 4.27761 23.9449H19.4378C20.0121 23.9449 20.563 23.7128 20.9692 23.2998C21.3753 22.8867 21.6035 22.3264 21.6035 21.7423V6.32375L18.3549 1.91846H5.36048Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5.36048 1.91846L2.11188 6.32375V21.7423C2.11188 22.3264 2.34005 22.8867 2.74621 23.2998C3.15236 23.7128 3.70322 23.9449 4.27761 23.9449H19.4378C20.0121 23.9449 20.5630 23.7128 20.9692 23.2998C21.3753 22.8867 21.6035 22.3264 21.6035 21.7423V6.32375L18.3549 1.91846H5.36048Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M2.11188 6.32379H21.6035" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M16.1892 10.729C16.1892 11.8974 15.7328 13.0179 14.9205 13.844C14.1082 14.6702 13.0065 15.1343 11.8577 15.1343C10.7089 15.1343 9.60718 14.6702 8.79487 13.844C7.98256 13.0179 7.52621 11.8974 7.52621 10.729" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
@@ -158,18 +160,21 @@ function addProductCard(product) {
         labelImg.alt = "";
         const discountPercent = document.createElement("p");
         discountPercent.classList.add("discount");
-        discountPercent.textContent = "10%"; // Puedes cambiar esto al valor real del descuento
+        discountPercent.textContent = `${product.discountPercent}%`; // Mostrar el porcentaje de descuento real
         priceTagDiv.appendChild(labelImg);
         priceTagDiv.appendChild(discountPercent);
         bottomSection.appendChild(priceTagDiv);
+        productCardDiscountContainer.appendChild(productCard);
+    } else {
+        productCardContainer.appendChild(productCard);
     }
     bottomSection.appendChild(addButton);
     bottomSection.appendChild(pricesDiv);
     productCard.appendChild(infoSection);
     productCard.appendChild(bottomSection);
     // Agregar la tarjeta de producto al contenedor
-    productCardContainer.appendChild(productCard);
 }
+
 
 function updateProductCards() {
     products.forEach(addProductCard);
