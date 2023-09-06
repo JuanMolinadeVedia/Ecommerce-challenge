@@ -160,7 +160,7 @@ function addProductCard(product) {
         labelImg.alt = "";
         const discountPercent = document.createElement("p");
         discountPercent.classList.add("discount");
-        discountPercent.textContent = `${product.discountPercent}%`; // Mostrar el porcentaje de descuento real
+        discountPercent.textContent = `10%`; // Mostrar el porcentaje de descuento real
         priceTagDiv.appendChild(labelImg);
         priceTagDiv.appendChild(discountPercent);
         bottomSection.appendChild(priceTagDiv);
