@@ -1,5 +1,5 @@
 // Selecting DOM elements
-const addProductButton = document.getElementById("addProductButton");
+// const addProductButton = document.getElementById("addProductButton");
 const darkModeToggle = document.getElementById("darkModeToggle");
 const body = document.body;
 const darkModeToggleLabel = document.querySelector(".dark-mode-toggle label");
@@ -8,21 +8,18 @@ const productCardDiscountContainer = document.querySelector(".product-card-disco
 
 let products = [];
 
-// Event listener for page load
 window.addEventListener("load", function () {
     loadProductsFromLocalStorage();
     loadDarkMode();
-    addProductButton.addEventListener("click", addProductHandler);
+    // addProductButton.addEventListener("click", addProductHandler);
     fetchDataAndRenderProducts(); // Integrate the API call here
 });
 
-// Load products from local storage
 async function loadProductsFromLocalStorage() {
     products = await getProductsFromAsyncFunction();
     updateProductCards();
 }
 
-// Retrieve products from local storage
 async function getProductsFromAsyncFunction() {
     try {
         const productsData = await localStorage.getItem("products");
@@ -33,7 +30,6 @@ async function getProductsFromAsyncFunction() {
     }
 }
 
-// Load dark mode setting from local storage
 function loadDarkMode() {
     const savedDarkMode = localStorage.getItem("darkMode");
     if (savedDarkMode === "enabled") {
@@ -41,16 +37,6 @@ function loadDarkMode() {
     }
 }
 
-// Display products in a container
-function displayProducts(productsToDisplay, container) {
-    container.innerHTML = '';
-
-    productsToDisplay.forEach(product => {
-        addProductCard(product, container);
-    });
-}
-
-// Enable dark mode
 function enableDarkMode() {
     body.classList.add("dark-mode");
     darkModeToggle.checked = true;
@@ -58,7 +44,6 @@ function enableDarkMode() {
     darkModeToggleLabel.classList.add("dark-mode-label");
 }
 
-// Disable dark mode
 function disableDarkMode() {
     body.classList.remove("dark-mode");
     darkModeToggle.checked = false;
@@ -66,7 +51,6 @@ function disableDarkMode() {
     darkModeToggleLabel.classList.remove("dark-mode-label");
 }
 
-// Create a product object
 function createProduct(title, description, price, img, discounted = false) {
     return {
         title,
@@ -77,21 +61,18 @@ function createProduct(title, description, price, img, discounted = false) {
     };
 }
 
-// Save products to local storage
 function saveProductsToLocalStorage(products) {
     localStorage.setItem("products", JSON.stringify(products));
 }
 
-// Add a new product to the list and update the UI
 function addProductHandler() {
     const newProduct = createProduct("Sample Title", "Sample Description", 9.99, "sample.jpg");
-    products = uploadProducts(newProduct, products);
+    products.push(newProduct); // Use push to add the new product to the array
     saveProductsToLocalStorage(products);
     addProductCard(newProduct);
     showProductAddedMessage();
 }
 
-// Show a product added message
 function showProductAddedMessage() {
     const feedbackDiv = createDOMElement("div", ["feedback-message"]);
     feedbackDiv.textContent = "Product added successfully!";
@@ -101,18 +82,15 @@ function showProductAddedMessage() {
     }, 3000);
 }
 
-// Create a DOM element with optional class names
 function createDOMElement(tag, classNames = []) {
     const element = document.createElement(tag);
     element.classList.add(...classNames);
     return element;
 }
 
-// Add a product card to the container
-function addProductCard(product, container) {
+function addProductCard(product) {
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
-
     const infoSection = document.createElement("div");
     infoSection.classList.add("info");
     const imgElement = document.createElement("img");
@@ -136,7 +114,7 @@ function addProductCard(product, container) {
     shoppingBagIcon.innerHTML = `
         <svg id="shoppingBagIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 24 26" fill="none">
     <g clip-path="url(#clip0_471_394)">
-        <path d="M5.36048 1.91846L2.11188 6.32375V21.7423C2.11188 22.3264 2.34005 22.8867 2.74621 23.2998C3.15236 23.7128 3.70322 23.9449 4.27761 23.9449H19.4378C19.5304 23.9449 20.5630 23.7128 20.9692 23.2998C21.3753 22.8867 21.6035 22.3264 21.6035 21.7423V6.32375L18.3549 1.91846H5.36048Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5.36048 1.91846L2.11188 6.32375V21.7423C2.11188 22.3264 2.34005 22.8867 2.74621 23.2998C3.15236 23.7128 3.70322 23.9449 4.27761 23.9449H19.4378C20.0121 23.9449 20.5630 23.7128 20.9692 23.2998C21.3753 22.8867 21.6035 22.3264 21.6035 21.7423V6.32375L18.3549 1.91846H5.36048Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M2.11188 6.32379H21.6035" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M16.1892 10.729C16.1892 11.8974 15.7328 13.0179 14.9205 13.844C14.1082 14.6702 13.0065 15.1343 11.8577 15.1343C10.7089 15.1343 9.60718 14.6702 8.79487 13.844C7.98256 13.0179 7.52621 11.8974 7.52621 10.729" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
@@ -148,7 +126,7 @@ function addProductCard(product, container) {
     </svg>
     `;
     shoppingBagIcon.alt = "Shopping Bag";
-
+    
     const plusIcon = document.createElement("svg");
     plusIcon.innerHTML = `
     <svg id="plusIcon" xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
@@ -175,7 +153,7 @@ function addProductCard(product, container) {
     price.textContent = `$${product.price.toFixed(2)}`;
     pricesDiv.appendChild(listPrice);
     pricesDiv.appendChild(price);
-    // Add the discount price div if the product has a discount
+    // Agregar el div de precio de descuento si el producto tiene descuento
     if (product.discounted) {
         productCard.classList.add("offer");
         const priceTagDiv = document.createElement("div");
@@ -185,48 +163,29 @@ function addProductCard(product, container) {
         labelImg.alt = "";
         const discountPercent = document.createElement("p");
         discountPercent.classList.add("discount");
-        discountPercent.textContent = `10%`; // Display the actual discount percentage
+        discountPercent.textContent = `10%`; // Mostrar el porcentaje de descuento real
         priceTagDiv.appendChild(labelImg);
         priceTagDiv.appendChild(discountPercent);
         bottomSection.appendChild(priceTagDiv);
         productCardDiscountContainer.appendChild(productCard);
+        console.log("Producto descuentado");
+
     } else {
         productCardContainer.appendChild(productCard);
+        console.log("Producto normal agregado");
+
     }
     bottomSection.appendChild(addButton);
     bottomSection.appendChild(pricesDiv);
     productCard.appendChild(infoSection);
     productCard.appendChild(bottomSection);
-    // Add the product card to the specified container
-    if (container) {
-        container.appendChild(productCard);
-    }
+
+    // Agregar la tarjeta de producto al contenedor
 }
 
-// Update product cards on the page
 function updateProductCards() {
-    // Filter and display featured products
-    const featuredProducts = products.filter(product => product.featured);
-    displayProducts(featuredProducts, productCardContainer);
-
-    // Filter and display on-sale products
-    const onSaleProducts = products.filter(product => product.onSale);
-    displayProducts(onSaleProducts, productCardDiscountContainer);
+    products.forEach(addProductCard);
 }
-
-// Event listener for dark mode toggle
-darkModeToggle.addEventListener("change", function () {
-    if (darkModeToggle.checked) {
-        enableDarkMode();
-        localStorage.setItem("darkMode", "enabled");
-    } else {
-        disableDarkMode();
-        localStorage.removeItem("darkMode");
-    }
-});
-
-// Event listener for add product button
-addProductButton.addEventListener("click", addProductHandler);
 
 // Integrate the function to fetch data from the API and render products
 async function fetchDataAndRenderProducts() {
